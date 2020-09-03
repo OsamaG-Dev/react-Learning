@@ -114,7 +114,7 @@ ReactDOM.render(<Header />,document.getElementById('root'));
 */
 //=============================================================
 //-----------componentDidMount------------------------------
-import React from 'react';
+/*import React from 'react';
 import ReactDOM from 'react-dom';
 class ComponentDIDMountExample extends React.Component{
   constructor(props){
@@ -133,3 +133,28 @@ class ComponentDIDMountExample extends React.Component{
   }
 }
 ReactDOM.render(<ComponentDIDMountExample />,document.getElementById('root'))
+*/
+//===========Updating Component: getDerivedStateFromProps=========
+import React from 'react';
+import ReactDOM from 'react-dom';
+class StateFromProps extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={color : "Blue"};
+  }
+  static getDerivedStateFromProps(props,state){
+    return{color : props.favcol}
+  }
+  changeColor = () => {
+     this.setState({color: "Red"});
+  }
+  render(){
+    return(
+      <div>
+  <h2>My Favorite Color is {this.state.color}</h2>
+  <button type="button" onClick={this.changeColor}>Click to Change Color</button>
+      </div>
+    );
+  }
+}
+ReactDOM.render(<StateFromProps favcol="YELLOW" />,document.getElementById("root"));
