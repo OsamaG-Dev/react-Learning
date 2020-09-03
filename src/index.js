@@ -67,6 +67,7 @@ ReactDOM.render(<Car />,document.getElementById('root'));
 */
 //================================================================
 //----------------Props Example----------------------------------
+/*
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -78,4 +79,23 @@ class Car extends React.Component{
 const element=<Car brand="FORD" />;
 
 ReactDOM.render(element,document.getElementById('root'));
-//---------
+*/
+//-------------------------------------------------------------
+//======getDerivedStateFromProps example===================
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class StateFromProps extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={favoriteColor : "Blue"};
+  }
+  static getDerivedStateFromProps(props,state){
+    return {favoriteColor : props.favCol};
+  }
+  render(){
+    return <h2> My Favourite Color is {this.state.favoriteColor}</h2>
+  }
+}
+ReactDOM.render(<StateFromProps favCol="Yellow" />, document.getElementById('root'));
+//================================================================
