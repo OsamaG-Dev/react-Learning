@@ -82,6 +82,7 @@ ReactDOM.render(element,document.getElementById('root'));
 */
 //-------------------------------------------------------------
 //======getDerivedStateFromProps example===================
+/*
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -97,5 +98,38 @@ class StateFromProps extends React.Component{
     return <h2> My Favourite Color is {this.state.favoriteColor}</h2>
   }
 }
-ReactDOM.render(<StateFromProps favCol="Yellow" />, document.getElementById('root'));
+ReactDOM.render(<StateFromProps favCol="Yellow" />, document.getElementById('root'));*/
 //================================================================
+//--------render method example----------------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class Header extends React.Component{
+  
+  render(){
+    var element=<h2>Hello World</h2>;
+    return element;
+  }
+}
+ReactDOM.render(<Header />,document.getElementById('root'));
+*/
+//=============================================================
+//-----------componentDidMount------------------------------
+import React from 'react';
+import ReactDOM from 'react-dom';
+class ComponentDIDMountExample extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={favoriteColor : "BLUE"};
+  }
+  componentDidMount(){
+    setTimeout(
+      () => {
+        this.setState({favoriteColor : "YEllow"})
+      }
+    ,3000);
+  }
+  render(){
+    return <h2>My Favourite Color is {this.state.favoriteColor}</h2>
+  }
+}
+ReactDOM.render(<ComponentDIDMountExample />,document.getElementById('root'))
