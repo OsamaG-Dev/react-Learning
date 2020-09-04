@@ -135,6 +135,7 @@ class ComponentDIDMountExample extends React.Component{
 ReactDOM.render(<ComponentDIDMountExample />,document.getElementById('root'))
 */
 //===========Updating Component: getDerivedStateFromProps=========
+/*
 import React from 'react';
 import ReactDOM from 'react-dom';
 class StateFromProps extends React.Component{
@@ -158,3 +159,90 @@ class StateFromProps extends React.Component{
   }
 }
 ReactDOM.render(<StateFromProps favcol="YELLOW" />,document.getElementById("root"));
+*/
+//================================================================
+//------updating Component: shouldComponentUpdate----------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class Header extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {color : "Blue"};
+  }
+  shouldComponentUpdate(){
+    return true;
+  }
+  changeColor= () => {
+    this.setState({color : props.favcol});
+  }
+  render(){
+    return (
+      <div>
+    <h2> My Fav color is: {this.state.color} </h2>
+    <button type='button' onClick={this.changeColor}>Click to Change Color</button>
+      </div>
+    );
+  }
+}
+ReactDOM.render(<Header favcol="white" />,document.getElementById('root'));*/
+//===============================================================
+//------Updating Component: Snapshot-------------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class SnapshotExample extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={color : "White"};
+  }
+  componentDidMount(){
+    setTimeout(
+      () => {
+        this.setState({color : "Blue!!"});
+      }
+    ,3000);
+  }
+  getSnapshotBeforeUpdate(prevProps,prevState){
+    document.getElementById("DIV1").innerHTML="Before the updation, my favorite color was "+prevState.color;
+  }
+  componentDidUpdate(){
+    document.getElementById("DIV2").innerHTML="After Updation, My favorite color is "+this.state.color;
+  }
+  render(){
+    return(
+<div>
+    <h2>Displaying information about my Favorite Color</h2>
+    <div id='DIV1'></div>
+    <div id='DIV2'></div>
+</div>
+    );
+  }
+}
+ReactDOM.render(<SnapshotExample />,document.getElementById("root"));
+*/
+//================================================================
+//-------Updating Component: componentDidUpdate-----------------
+import React from 'react';
+import ReactDOM from 'react-dom';
+class FavColor extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={color: "Red"};
+  }
+  componentDidMount(){
+    setTimeout(()=>{
+      this.setState({color : "YELLOW"})
+    },3000);
+  }
+  componentDidUpdate(){
+    document.getElementById("DIV1").innerHTML="My Favourite Color after update is "+this.state.color;
+  }
+  render(){
+    return(
+      <div>
+        <h2>My Favourite Color is {this.state.color}</h2>
+        <div id="DIV1"></div>
+      </div>
+    )
+  }
+}
+ReactDOM.render(<FavColor />,document.getElementById('root'));
