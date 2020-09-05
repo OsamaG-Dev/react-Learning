@@ -221,7 +221,7 @@ ReactDOM.render(<SnapshotExample />,document.getElementById("root"));
 */
 //================================================================
 //-------Updating Component: componentDidUpdate-----------------
-import React from 'react';
+/*import React from 'react';
 import ReactDOM from 'react-dom';
 class FavColor extends React.Component{
   constructor(props){
@@ -246,3 +246,72 @@ class FavColor extends React.Component{
   }
 }
 ReactDOM.render(<FavColor />,document.getElementById('root'));
+*/
+//=============================================================
+//------Umounting--------------------------------------------
+/*
+import React from 'react';
+import ReactDOM from 'react-dom';
+class Component extends React.Component{
+constructor(props){
+  super(props);
+  this.state={show : true};
+}
+delHeader = () =>{
+  this.setState({show : false});
+}
+render(){
+  let myHeader;
+  if(this.state.show){
+    myHeader = <Child />;
+  }
+  return (
+    <div>
+{myHeader}
+<button type="button" onClick={this.delHeader}>Delete Header</button>
+</div>
+  );
+}
+}
+class Child extends React.Component{
+  componentWillUnmount(){
+    alert('The Header Component component is about to unmount');
+  }
+  render(){
+    return <h2>Hello World</h2>;
+  }
+}
+ReactDOM.render(<Component />,document.getElementById('root'));
+*/
+//=================================================================
+//------React Events---------------------------------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+
+function shoot(){
+  alert('Nice Shot!!!!');
+}
+ const element = <button onClick={shoot}>Click to shoot</button>;
+ ReactDOM.render(element,document.getElementById('root'));
+ */
+//================================================================
+//-----------Event Handlers------------------------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class Component extends React.Component{
+  shoot() {
+    alert('Nice SHOT PAL');
+  }
+  render(){
+    return(
+<div>
+<h2>Click the Button to Shoot the ball</h2>
+<button onClick={this.shoot}>Click to shooot</button>
+</div>
+    );
+  }
+}
+ReactDOM.render(<Component />,document.getElementById('root'));
+*/
+//===============================================================
+//-----------Event handler Bind this-----------------------------
