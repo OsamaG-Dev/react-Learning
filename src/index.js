@@ -315,3 +315,131 @@ ReactDOM.render(<Component />,document.getElementById('root'));
 */
 //===============================================================
 //-----------Event handler Bind this-----------------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class Football extends React.Component{
+  shoot = ()=>{
+    alert(this);
+  }
+  render(){
+    return <button onClick={this.shoot}>Click the Button</button>;
+  }
+}
+ReactDOM.render(<Football />,document.getElementById('root'));
+*/
+//--------------------------------------------------------------
+//--------Binding this keyword----------------------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class Component extends React.Component{
+  constructor(props){
+    super(props);
+    this.shoot=this.shoot.bind(this);
+  }
+  shoot(){
+    alert(this);
+  }
+  render(){
+    return <button onClick={this.shoot}>click the button</button>
+  }
+}
+ReactDOM.render(<Component />,document.getElementById('root'));
+*/
+//=================================================================
+//----------Passing a value----------------------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class Component extends React.Component{
+  shoot = (a) =>{
+    alert(a);
+  }
+  render(){
+    return <button onClick={()=>{this.shoot("GOAL")}}>click to Shoot</button>;
+  }
+}
+ReactDOM.render(<Component />,document.getElementById('root'));
+*/
+//==============================================================
+//------------------Passing a value via bind---------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class Component extends React.Component{
+  shoot(a){
+    alert(a);
+  }
+  render(){
+    return <button onClick={this.shoot.bind(this,"GOAL!!!")}>Click to shoot</button>
+  }
+}
+ReactDOM.render(<Component />,document.getElementById('root'));
+*/
+//==================================================================
+//-------React Event Object with arrow function--------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class Component extends React.Component{
+  shoot =(a,b) =>{
+    alert(b.type);
+  }
+  render(){
+    return <button onClick={(event)=>{this.shoot("GOAL" , event)}}>Click to check the event Type</button>
+  }
+}
+ReactDOM.render(<Component />,document.getElementById('root'))
+*/
+//=================================================================
+//-------React Event Object without arrow function---------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class Component extends React.Component{
+  shoot(a,b){
+    alert(b.type);
+    alert(a);
+  }
+  render(){
+    return <button onClick={this.shoot.bind(this,"GOAL!!")}>Click to check the type of event</button>
+  }
+}
+ReactDOM.render(<Component />,document.getElementById('root'));
+*/
+//===============================================================
+//---------Forms : Adding a Form--------------------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class Form extends React.Component{
+  render(){
+    return(
+<form>
+<h2>Hello</h2>
+<p>Enter your Name</p>
+<input type='text' />
+<button type='submit' >Submit</button>
+</form>
+    );
+  }
+}
+ReactDOM.render(<Form />,document.getElementById('root'))
+*/
+//==============================================================
+//-----------Handling Form-------------------------------------
+import React from 'react';
+import ReactDOM from 'react-dom';
+class Handling extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={username : ''};
+  }
+  changeHandler=(event) =>{
+    this.setState({username:event.target.value});
+  }
+  render(){
+    return(
+      <form>
+  <h1>Hello {this.state.username}</h1>
+  <p>Enter your name</p>
+  <input type='text' onChange={this.changeHandler} />
+      </form>
+    );
+  }
+}
+ReactDOM.render(<Handling />,document.getElementById('root'));
