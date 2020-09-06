@@ -601,7 +601,7 @@ ReactDOM.render(<MyForm />,document.getElementById('root'));
 */
 //===========================================================
 //----Display Error Message----------------------------------
-import React from'react';
+/*import React from'react';
 import ReactDOM from 'react-dom';
 class MyForm extends React.Component{
   constructor(props){
@@ -639,3 +639,112 @@ class MyForm extends React.Component{
   }
 }
 ReactDOM.render(<MyForm />,document.getElementById('root'))
+*/
+//================================================================
+//----------TExt Area-----------------------------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class TextArea extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={description:'The content of the text area goes in the value attribute'};
+  }
+  render(){
+    return(
+      <form>
+      <textarea value={this.state.description} />
+      </form>
+    );
+  }
+}
+ReactDOM.render(<TextArea />,document.getElementById('root'));
+*/
+//==============================================================
+//------------------------Select Area--------------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+
+class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mycar: 'Volvo'
+    };
+  }
+  render() {
+    return (
+      <form>
+      <select value={this.state.mycar}>
+        <option value="Ford">Ford</option>
+        <option value="Volvo">Volvo</option>
+        <option value="Fiat">Fiat</option>
+      </select>
+      </form>
+    );
+  }
+}
+
+ReactDOM.render(<MyForm />, document.getElementById('root'));
+*/
+//=============================================================
+//-----------Inline Styling-------------------------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class Style extends React.Component{
+  render(){
+    return(
+      <div>
+      <h1 style={{backgroundColor:"lightblue"}}>HELLO Style</h1>
+      <p style={{backgroundColor : "lightgreen"}}>Adding some styles</p>
+      </div>
+    );
+  }
+}
+ReactDOM.render(<Style />,document.getElementById('root'));
+*/
+//==============================================================
+//--------------JAvaScript Object Styling-----------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+class Styling extends React.Component{
+  render(){
+    const styles ={
+    color : "white" ,
+    backgroundColor : "DodgerBlue" ,
+    padding : "10px",
+    fontFamily : "Arial" ,
+  };
+  return(
+<div>
+<h1 style={styles}>Hello Style</h1>
+<p>Applying Styles</p>
+</div>
+  );
+};
+}
+ReactDOM.render(<Styling />,document.getElementById('root'))
+*/
+//==============================================================
+//-------- Css Styling-----------------------------------------
+/*import React from 'react';
+import ReactDOM from 'react-dom';
+import './style.css';
+class Styling extends React.Component{
+  render(){
+    return(
+      <div>
+      <h1>Hello Style</h1>
+      <p>Adding CSS Styles</p>
+      </div>
+    );
+  }
+}
+ReactDOM.render(<Styling />,document.getElementById('root'));
+*/
+//================================================================
+//------modules CSS---------------------------------------------
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Application from './App.js';
+
+ReactDOM.render(<Application />,document.getElementById('root'))
