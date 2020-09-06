@@ -422,6 +422,7 @@ ReactDOM.render(<Form />,document.getElementById('root'))
 */
 //==============================================================
 //-----------Handling Form-------------------------------------
+/*
 import React from 'react';
 import ReactDOM from 'react-dom';
 class Handling extends React.Component{
@@ -433,9 +434,15 @@ class Handling extends React.Component{
     this.setState({username:event.target.value});
   }
   render(){
+    let header;
+    if(this.state.username){
+      header=<h1>Hello {this.state.username}</h1>;
+    }else{
+      username : '';
+    }
     return(
       <form>
-  <h1>Hello {this.state.username}</h1>
+  {header}
   <p>Enter your name</p>
   <input type='text' onChange={this.changeHandler} />
       </form>
@@ -443,3 +450,38 @@ class Handling extends React.Component{
   }
 }
 ReactDOM.render(<Handling />,document.getElementById('root'));
+*/
+//=================================================================
+//--------submitting Forms---------------------------------------
+import React from 'react';
+import ReactDOM from 'react-dom';
+class Submitting extends React.Component{
+  constructor(props){
+    super(props);
+    this.state={username: ''};
+  }
+  submitHandler=(event)=>{
+    event.preventDefault();
+    alert('You are about to submit '+this.state.username);
+  }
+  changeHandler=(event)=>{
+    this.setState({username:event.target.value})
+  }
+  render(){
+    let header;
+    if(this.state.username){
+      header=<h1>Hello {this.state.username}</h1>
+    }else{
+      header='';
+    }
+    return(
+      <form onSubmit={this.submitHandler}>
+      {header}
+      <p>Enter your name, and submit</p>
+      <input type='text' onChange={this.changeHandler} />
+      <input type='submit' />
+      </form>
+    );
+  }
+}
+ReactDOM.render(<Submitting />,document.getElementById('root'))
